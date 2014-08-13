@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{%= title %} tests</title>
+  <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../bower_components/mocha/mocha.js"></script>
+  <script src="../bower_components/chai/chai.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="../vendor/loader.js"></script>
+  <script src="../tmp/{%= name %}.amd.js"></script>
+  <script src="../tmp/{%= name %}-tests.js"></script>
+  <script type="text/javascript">
+    for (var key in requireModule.registry) {
+      if (/-test$/.test(key)) {
+        requireModule(key);
+      }
+    }
+
+    var expect = chai.expect;
+    chai.Assertion.includeStack = true;
+
+    mocha.checkLeaks();
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      mocha.run();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "{%= name %}",
+  "version": "{%= version %}",
+  "authors": [
+    "{%= author_name %} <{%= author_email %}>"
+  ],
+  "main": "dist/{%= name %}.js",
+  "license": "{%= licenses %}",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests",
+    "bower.json",
+    "Gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "mocha": "~1.21.4",
+    "chai": "~1.9.1"
+  }
+}
