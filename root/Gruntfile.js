@@ -172,6 +172,11 @@ module.exports = function(grunt) {
           dest: 'dist/bower/' + pkg.main + '.amd.js'
         }]
       }
+    },
+
+    watch: {
+      files: ['lib/**/*', 'tests/**/*'],
+      tasks: ['test']
     }
   });
 
@@ -180,6 +185,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-es6-module-transpiler');
   grunt.loadNpmTasks('grunt-lintspaces');
